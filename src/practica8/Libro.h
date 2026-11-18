@@ -1,0 +1,50 @@
+#ifndef LIBRO_H
+#define LIBRO_H
+
+#include <stdio.h>
+#include <string.h>
+#define CANT_LIBROS 50
+#define MAX_ISBN 20
+#define MAX_TITULO 45
+#define MAX_AUTOR 30
+
+
+
+
+typedef struct
+{
+    char isbn[MAX_ISBN];   //International Standard Book Number
+    char titulo[MAX_TITULO];
+    char autor[MAX_AUTOR];
+    int fecha;
+    int disponible;
+	int rango;
+}Libro;
+
+
+
+
+
+
+
+
+
+typedef struct
+{
+	size_t cantidad;
+	Libro *libros;	
+}Acervo;
+
+
+Acervo obtener_libros(void);
+void imprimirLibro(void* vlibro);
+int compararTitulo(void*,void*);
+int compararNombre(void*, void*);
+int compararISBN(void*, void*);
+int compararFecha(void *a, void* b);
+int compararRangoAutores(void* a, void* b);
+int compararRangoTitulo(void* a, void* b);
+int compararRangoFechas(void*  a, void* b);
+
+
+#endif
